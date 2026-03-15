@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Hola Regis</title>
+
+<style>
+body{
+    margin:0;
+    overflow:hidden;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    background:linear-gradient(135deg,#ff4b5c,#ff758c);
+    font-family:Arial, sans-serif;
+    text-align:center;
+}
+
+h1{
+    color:white;
+    font-size:60px;
+    animation:latido 1.5s infinite;
+}
+
+p{
+    color:white;
+    font-size:25px;
+    margin-top:10px;
+}
+
+.heart{
+    position:absolute;
+    bottom:-50px;
+    font-size:30px;
+    animation:flotar 6s linear infinite;
+}
+
+@keyframes flotar{
+    0%{
+        transform:translateY(0);
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-110vh);
+        opacity:0;
+    }
+}
+
+@keyframes latido{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.2);}
+    100%{transform:scale(1);}
+}
+</style>
+</head>
+
+<body>
+
+<h1>❤️ Hola Regis ❤️</h1>
+<p>Solo quería decirte hola 💌</p>
+
+<script>
+function crearCorazon(){
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.fontSize = (20 + Math.random()*30) + "px";
+    heart.style.animationDuration = (4 + Math.random()*3) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },7000);
+}
+
+setInterval(crearCorazon,300);
+</script>
+
+</body>
+</html>
